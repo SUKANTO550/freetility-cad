@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "FreeTilityCAD"
+// cad = FreeTility CAD (Manifold kernel), cadpro = FreeTility CAD PRO (OpenCascade kernel)
+include ':cad', ':cadpro'

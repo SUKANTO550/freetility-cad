@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace = 'com.freetility.cadpro'
+    compileSdk = 37
+
+    defaultConfig {
+        applicationId = 'com.freetility.cadpro'
+        minSdk = 26
+        targetSdk = 36
+        versionCode = 5
+        versionName = '1.2.2'
+    }
+
+    sourceSets {
+        // Shared web UI (../web) + this app's kernel (src/main/assets)
+        main.assets.srcDirs = ['src/main/assets', '../web']
+        // MainActivity is shared with FreeTility CAD
+        main.java.srcDirs = ['src/main/java', '../shared-java']
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.18.0'
+    implementation 'androidx.core:core:1.13.1'
+}

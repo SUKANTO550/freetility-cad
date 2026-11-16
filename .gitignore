@@ -1,0 +1,8 @@
+build/
+.gradle/
+local.properties
+*.apk
+*.iml
+.idea/
+WindowsApp/bin/
+WindowsApp/obj/

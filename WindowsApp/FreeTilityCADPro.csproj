@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    FreeTility CAD PRO for Windows: a small WebView2 host around the same web UI
+    (CADApp/web) and OpenCascade kernel (CADApp/cadpro/src/main/assets) as the Android app.
+    Targets .NET Framework 4.8, which ships with Windows 10 and 11.
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>FreeTilityCADPro</AssemblyName>
+    <RootNamespace>FreeTility.CadPro</RootNamespace>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.2.2</Version>
+    <Product>FreeTility CAD PRO</Product>
+    <AssemblyTitle>FreeTility CAD PRO</AssemblyTitle>
+    <Company>FreeTility</Company>
+    <Authors>Sukanto Biswas</Authors>
+    <Copyright>© 2026 FreeTility</Copyright>
+    <DebugType>none</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4314.35" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Shared web UI + the PRO kernel, copied next to the exe as web\ (same layout as the APK assets) -->
+    <Content Include="..\web\**\*" LinkBase="web" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\cadpro\src\main\assets\**\*" LinkBase="web" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
